@@ -22,7 +22,7 @@ def imprimir_grafo(grafo):
 def main():
     grafo = carregar_grafo("arestas.txt")
 
-    funcoes = [('DFS', dfs(grafo, 'Tech', 'Patio 1')), ('BFS', bfs(grafo, 'Tech', 'Patio 1')), ('Gulosa', gulosa(grafo, 'Tech', 'Patio 1'))]
+    funcoes = [('DFS', dfs(grafo, 'Tech', 'Patio_1')), ('BFS', bfs(grafo, 'Tech', 'Patio_1')), ('Gulosa', gulosa(grafo, 'Tech', 'Patio_1'))]
 
     resultados_tabela = []
 
