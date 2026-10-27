@@ -13,14 +13,14 @@ def busca_dfs(grafo, atual, saida, visitados: set, caminho: list, custo):
     visitados.add(atual)
 
     if atual == saida:
-        return caminho, len(visitados)
+        return caminho, custo, len(visitados)
 
     for nome, peso in grafo[atual]:
         if nome not in visitados:
             resultado = busca_dfs(grafo, nome, saida, visitados, caminho, custo + peso)
 
             if resultado is not None:
-                return resultado, custo, len(visitados)
+                return resultado
 
 def bfs(grafo, inicio, saida):
     visitados = {inicio}
@@ -49,13 +49,12 @@ def bfs(grafo, inicio, saida):
                 visitados.add(nome)
                 fila.append(nome)
                 origem[nome] = (v, peso)
-                
+
 def gulosa(grafo, inicio, saida):
     visitados = {inicio}
     origem = {}
     fila = []
-    heapq.heappush(fila, (distancia(inicio, saida), inicio))
-    custo = inicio[1]
+    heapq.heappush(fila, (0, inicio))   
 
     while fila:
         num_distancia, v = heapq.heappop(fila)
@@ -63,21 +62,20 @@ def gulosa(grafo, inicio, saida):
         if v == saida:
             caminho = []
             atual = saida
+            custo = 0
                     
-            while atual != inicio:
-                caminho.append(atual)    
-                atual = origem[atual]   
+            while atual != inicio:   
+                caminho.append(atual)  
+                pai, peso = origem[atual]
+                custo += peso  
+                atual = pai  
                         
             caminho.append(inicio)      
             caminho.reverse()       
             return caminho, custo, len(visitados)
         
-        for w in grafo[v]:
-            if w[0] not in visitados:
-                visitados.add(w)
-                custo += w[1]
-                heapq.heappush(fila, (distancia(w, saida), w))
-                origem[w] = v
-
-def distancia(atual, saida):
-    return abs(atual[0] - saida[0]) + abs(atual[1] - saida[1])
+        for nome, peso in grafo[v]:
+            if nome not in visitados:
+                visitados.add(nome)
+                heapq.heappush(fila, (peso, nome))
+                origem[nome] = (v, peso)
