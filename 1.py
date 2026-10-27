@@ -1,4 +1,6 @@
 from buscas import bfs, busca_dfs, dfs, gulosa
+from tabulate import tabulate
+import textwrap
 
 def main():
     grafo = {
@@ -47,6 +49,28 @@ def main():
         'Estetica': [('Rua', 5)]
     }
 
+    funcoes = [('DFS', dfs(grafo, 'Tech', 'Patio 1')), ('BFS', bfs(grafo, 'Tech', 'Patio 1')), ('Gulosa', gulosa(grafo, 'Tech', 'Patio 1'))]
+
+    resultados_tabela = []
+
+    for nome_algoritmo, resultado in funcoes:
+        if resultado is not None:
+            caminho, custo, casas_visitadas = resultado
+            
+            caminho_str = " -> ".join(caminho)
+            
+            caminho_formatado = textwrap.fill(caminho_str, width=50)
+            
+            resultados_tabela.append([nome_algoritmo, caminho_formatado, custo, casas_visitadas])
+        else:
+            resultados_tabela.append([nome_algoritmo, "Caminho não encontrado", "-", "-"])
+
+    cabecalhos = ["Algoritmo", "Caminho", "Custo Total", "Nós Visitados"]
+    tabela = tabulate(resultados_tabela, headers=cabecalhos, tablefmt="grid")
+    
+    print(tabela)
+
 if __name__ == "__main__":
+    
     main()
     
