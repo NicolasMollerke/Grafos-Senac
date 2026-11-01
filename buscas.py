@@ -79,3 +79,40 @@ def gulosa(grafo, inicio, saida):
                 visitados.add(nome)
                 heapq.heappush(fila, (peso, nome))
                 origem[nome] = (v, peso)
+
+
+def dijkstra(grafo, origem, destino):
+    distancia = {p: float("inf") for p in grafo}
+    anterior = {}
+    distancia[origem] = 0
+    fila = [(0, origem)]
+    finalizadas = set()
+
+    while fila:
+        d, atual = heapq.heappop(fila)
+        if atual in finalizadas:
+            continue
+        finalizadas.add(atual)
+
+        if atual == destino:
+            break
+
+        for vizinho, peso in grafo[atual]:
+            if vizinho in finalizadas:
+                continue
+            nova = d + peso
+            if nova < distancia[vizinho]:
+                distancia[vizinho] = nova
+                anterior[vizinho] = atual
+                heapq.heappush(fila, (nova, vizinho))
+
+
+    if distancia[destino] == float("inf"):
+        return [], float("inf"), len(finalizadas)
+
+    caminho = [destino]
+    while caminho[-1] != origem:
+        caminho.append(anterior[caminho[-1]])
+    caminho.reverse()
+
+    return caminho, distancia[destino], len(finalizadas)
