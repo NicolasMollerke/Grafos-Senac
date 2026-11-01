@@ -24,6 +24,7 @@ Estudos_2 Estudos_3 1
 Porta Secretaria 3
 Porta 204 8
 Idiomas 208 4
+Idiomas 207 19
 Porta_Biblioteca Professores 2
 Secretaria Administracao 1
 204 Porta_Salas 5
@@ -31,6 +32,7 @@ Professores Diretoria 6
 Administracao Coordenacao 1
 Porta_Salas 205 2
 207 206 10
+207 Idioma 19
 Diretoria Coordenacao 3
 205 102 19
 206 Saida_Rua_1 10
