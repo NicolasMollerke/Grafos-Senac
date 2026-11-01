@@ -1,4 +1,4 @@
-from buscas import bfs, busca_dfs, dfs, gulosa
+from buscas import bfs, dfs, gulosa, dijkstra
 from tabulate import tabulate
 import textwrap
 
@@ -22,7 +22,7 @@ def imprimir_grafo(grafo):
 def main():
     grafo = carregar_grafo("arestas.txt")
 
-    funcoes = [('DFS', dfs(grafo, 'Tech', 'Patio_1')), ('BFS', bfs(grafo, 'Tech', 'Patio_1')), ('Gulosa', gulosa(grafo, 'Tech', 'Patio_1'))]
+    funcoes = [('DFS', dfs(grafo, 'Tech', 'Patio_2')), ('BFS', bfs(grafo, 'Tech', 'Patio_2')), ('Gulosa', gulosa(grafo, 'Tech', 'Patio_2')), ('dijkstra', dijkstra(grafo, 'Tech', 'Patio_2'))]
 
     resultados_tabela = []
 
