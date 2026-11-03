@@ -50,11 +50,11 @@ Já o **Dijkstra** ignora a quantidade de portas e foca exclusivamente em encont
 ### O Caminho do BFS (Menos Saltos, Maior Custo)
 Opta por ir pelo corredor das lancherias por exigir a travessia de apenas 4 portas. No entanto, ele cai na armadilha do corredor longo entre a `Lancheria_2` e a `Lancheria_1` (peso 23).
   * **Rota:** `Tech` → `Patio_1` → `Lancheria_2` → `Lancheria_1` → `Patio_2`
-  * **Custo Total:** 50 passos (4 nós)
+  * **Custo Total:** 50 passos (4 arestas)
 
 ### O Caminho do Dijkstra (Mais Saltos, Menor Custo)
 Opta por passar pelo corredor das salas 200 e pelos banheiros. Mesmo precisando abrir uma porta a mais, ele calcula que o esforço físico total pelas salas de aula é consideravelmente menor.
   * **Rota:** `Tech` → `201` → `202` → `203` → `Banheiro_Feminino` → `Patio_2`
-  * **Custo Total:** 37 passos (5 nós)
+  * **Custo Total:** 37 passos (5 arestas)
 
 Isso prova que, em mapas com distâncias irregulares, o caminho com menos transições não é necessariamente o caminho mais curto fisicamente.
