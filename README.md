@@ -56,5 +56,3 @@ Opta por ir pelo corredor das lancherias por exigir a travessia de apenas 4 port
 Opta por passar pelo corredor das salas 200 e pelos banheiros. Mesmo precisando passar por uma porta a mais, ele calcula que o esforço físico total pelas salas de aula é consideravelmente menor.
   * **Rota:** `Tech` → `201` → `202` → `203` → `Banheiro_Feminino` → `Patio_2`
   * **Custo Total:** 37 passos 
-
-Isso prova que, em mapas com distâncias irregulares, o caminho com menos transições não é necessariamente o caminho mais curto fisicamente.
