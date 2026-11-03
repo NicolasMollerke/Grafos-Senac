@@ -1,6 +1,7 @@
 from collections import deque
 import heapq
 
+# Busca em profundidade recursiva. Escolhe um vizinho e vai até o fim dele. Não garante o melhor caminho e sim o "primeiro" que ele encontra.
 def dfs(grafo, inicio, saida):
     visitados = set()
     caminho = []
@@ -8,7 +9,6 @@ def dfs(grafo, inicio, saida):
 
     return busca_dfs(grafo, inicio, saida, visitados, caminho, 0)
 
-# Busca em profundidade recursiva. Escolhe um vizinho e vai até o fim dele. Não garante o melhor caminho e sim o "primeiro" que ele encontra.
 def busca_dfs(grafo, atual, saida, visitados: set, caminho: list, custo):
     caminho.append(atual)
     visitados.add(atual)
