@@ -8,6 +8,7 @@ def dfs(grafo, inicio, saida):
 
     return busca_dfs(grafo, inicio, saida, visitados, caminho, 0)
 
+# Busca em profundidade recursiva. Escolhe um vizinho e vai até o fim dele. Não garante o melhor caminho e sim o "primeiro" que ele encontra.
 def busca_dfs(grafo, atual, saida, visitados: set, caminho: list, custo):
     caminho.append(atual)
     visitados.add(atual)
@@ -22,6 +23,10 @@ def busca_dfs(grafo, atual, saida, visitados: set, caminho: list, custo):
             if resultado is not None:
                 return resultado
 
+    caminho.pop()
+    return None
+
+# Busca em largura com fila. Realiza a busca em camadas, encontrando o caminho que visite menos nós. Não garante o melhor caminho pois considera a quantidade de nós e não o peso das arestas.
 def bfs(grafo, inicio, saida):
     visitados = {inicio}
     fila = deque([inicio])
@@ -50,6 +55,8 @@ def bfs(grafo, inicio, saida):
                 fila.append(nome)
                 origem[nome] = (v, peso)
 
+
+# Usa fila de prioridade (heapq) e sempre expande o vizinho com a aresta de menor peso, sem reconsiderar. Por ser um algoritmo guloso ele faz sempre a melhor decisão local não garantindo a melhor solução global.
 def gulosa(grafo, inicio, saida):
     visitados = {inicio}
     origem = {}
@@ -81,6 +88,7 @@ def gulosa(grafo, inicio, saida):
                 origem[nome] = (v, peso)
 
 
+# Acha o caminho de menor custo total. Mantém a menor distância conhecida até cada porta e sempre finaliza a porta de menor distância (heapq).Se achar um caminho melhor para um vizinho, atualiza distancia e anterior.
 def dijkstra(grafo, origem, destino):
     distancia = {p: float("inf") for p in grafo}
     anterior = {}
