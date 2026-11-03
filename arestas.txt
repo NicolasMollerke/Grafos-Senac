@@ -32,7 +32,6 @@ Professores Diretoria 6
 Administracao Coordenacao 1
 Porta_Salas 205 2
 207 206 10
-207 Idioma 19
 Diretoria Coordenacao 3
 205 102 19
 206 Saida_Rua_1 10
