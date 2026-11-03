@@ -48,7 +48,7 @@ O **BFS** não leva os pesos das arestas em consideração. Seu único objetivo 
 Já o **Dijkstra** ignora a quantidade de portas e foca exclusivamente em encontrar a rota com o **menor custo total (soma dos pesos)**. 
 
 ### O Caminho do BFS (Menos Saltos, Maior Custo)
-Opta por ir pelo corredor das lancherias por exigir a travessia de apenas 4 portas. No entanto, ele cai na armadilha do corredor longo entre a `Lancheria_2` e a `Lancheria_1` (peso 23).
+Opta por ir pelo corredor das lancherias por exigir a travessia de apenas 5 portas. No entanto, ele cai na armadilha do corredor longo entre a `Lancheria_2` e a `Lancheria_1` (peso 23).
   * **Rota:** `Tech` → `Patio_1` → `Lancheria_2` → `Lancheria_1` → `Patio_2`
   * **Custo Total:** 50 passos
 
